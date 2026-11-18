@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio</title>
+  <meta name="description" content="Detalhes do desafio semanal do projeto.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <section class="article-detail">
+      <div class="article-shell" id="desafioContent"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="desafios-data.js"></script>
+  <script src="site.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    let n = parseInt(params.get("semana"), 10);
+    if (!(n >= 1 && n <= desafios.length)) n = calcularSemanaAtual();
+    const d = desafios[n - 1];
+    const box = document.getElementById("desafioContent");
+    document.title = `Semana ${n}: ${d.titulo}`;
+
+    function render() {
+      const feito = getConcluidos().includes(n);
+      const ant = n > 1 ? `<a class="prototype-btn" href="desafio.html?semana=${n - 1}">← Semana ${n - 1}</a>` : "<span></span>";
+      const prox = n < desafios.length ? `<a class="prototype-btn" href="desafio.html?semana=${n + 1}">Semana ${n + 1} →</a>` : "<span></span>";
+      box.innerHTML = `
+        <div class="article-back-row"><a class="prototype-btn" href="desafios.html">← Todos os desafios</a></div>
+        <header class="article-header" data-reveal>
+          <div class="challenge-meta">
+            <span class="challenge-badge">Semana ${n} de ${desafios.length}</span>
+            <span class="challenge-badge light">${formatarPeriodo(n)}</span>
+            ${n === calcularSemanaAtual() ? '<span class="challenge-badge">Semana atual</span>' : ""}
+          </div>
+          <h1>${d.titulo}</h1>
+          <p class="article-lead">${d.descricao}</p>
+        </header>
+        <div class="detail-blocks" data-stagger>
+          <div class="detail-card"><span class="eyebrow">Como fazer</span><p>${d.acao}</p></div>
+          <div class="detail-card alt"><span class="eyebrow">Dica</span><p>${d.dica}</p></div>
+        </div>
+        <div class="detail-done" data-reveal>
+          <button class="prototype-btn ${feito ? "" : "dark"}" id="doneBtn" type="button">${feito ? "✓ Concluído — desmarcar" : "Marcar como concluído"}</button>
+          <span class="challenge-small" id="doneMsg">${feito ? "Boa! Esse desafio já está no seu progresso." : "Seu progresso fica salvo neste navegador."}</span>
+        </div>
+        <div class="detail-nav">${ant}${prox}</div>`;
+      document.getElementById("doneBtn").addEventListener("click", () => {
+        const l = getConcluidos();
+        setConcluidos(l.includes(n) ? l.filter(x => x !== n) : [...l, n]);
+        render();
+      });
+      window.revealObserve && window.revealObserve();
+    }
+    render();
+  </script>
+</body>
+</html>

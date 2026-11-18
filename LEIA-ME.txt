@@ -1,0 +1,22 @@
+COMO EXECUTAR O MODO AULA
+
+1. Abra a pasta no VS Code.
+2. Instale a extensão "Live Server" (Ritwick Dey), se ainda não tiver.
+3. Clique com o botão direito em index.html > "Open with Live Server".
+4. Abra a página Blog pelo menu.
+
+IMPORTANTE
+O arquivo noticias.json é a fonte dos posts. Ao adicionar uma nova notícia, o site a ordena automaticamente pela data e mostra as mais recentes primeiro.
+
+Ao abrir index.html diretamente com duplo clique (file://), alguns navegadores bloqueiam o carregamento de JSON por segurança. O projeto agora possui um fallback para não deixar a página vazia, mas para visualizar automaticamente qualquer nova alteração no noticias.json use Live Server.
+Correção das notícias: as imagens das 3 publicações usam os endereços enviados pelo usuário e não ficam mais cobertas pelos placeholders visuais.
+
+
+Atualização: as publicações usam somente a categoria "Notícias"; as categorias Lei, Estudo e Pesquisa foram removidas dos rótulos.
+
+
+Atualização (páginas e contato)
+- Novas páginas: desafios.html (lista dos 12 desafios), desafio.html?semana=N (detalhe), quiz.html, aprenda.html e contato.html.
+- Todos os links do site agora levam para páginas próprias. Cabeçalho e rodapé são gerados por site.js (edite lá).
+- Os dados dos desafios ficam em desafios-data.js; a data de início também.
+- Telefone de contato: (83) 99405-2626 — alterar em site.js (TELEFONE) e contato.html.

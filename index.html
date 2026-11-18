@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foco na aula</title>
+  <meta name="description" content="Projeto de conscientização sobre o uso do celular durante as aulas.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="inicio">
+
+    <section class="hero container-fluid">
+      <div class="hero-inner">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Projeto escolar</p>
+          <h1>Olá.<br>Foco na aula.</h1>
+          <p class="hero-text">
+            Um espaço para refletir sobre o uso do celular em sala
+            e descobrir como pequenas mudanças podem melhorar sua atenção.
+          </p>
+          <a class="prototype-btn" href="aprenda.html">Explorar o projeto ↗</a>
+        </div>
+        <div class="hero-art" data-reveal>
+          <img src="hero-ilustracao.png" alt="Ilustração em preto e branco representando tecnologia e atenção">
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-links container" id="aprenda" data-reveal>
+      <h2>Links rápidos</h2>
+      <div class="quick-grid">
+        <a class="quick-card" href="blog.html"><span>Notícias</span><span class="arrow">↗</span></a>
+        <a class="quick-card" href="desafios.html"><span>Desafios</span><span class="arrow">↗</span></a>
+        <a class="quick-card" href="quiz.html"><span>Quiz</span><span class="arrow">↗</span></a>
+        <a class="quick-card" href="contato.html"><span>Contato</span><span class="arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="projects-section latest-news-section" id="blog">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Últimas publicações</h2>
+            <p class="section-subtitle" id="latestNewsLabel">Carregando...</p>
+          </div>
+          <a href="blog.html">ver todas ↗</a>
+        </div>
+        <div class="row g-4" id="latestNewsGrid">
+          <div class="empty-state">Carregando publicações...</div>
+        </div>
+        <p class="data-message" data-news-error hidden></p>
+      </div>
+    </section>
+
+    <section class="challenge-section" id="desafios">
+      <div class="container challenge-box" data-reveal>
+        <div>
+          <div class="challenge-meta">
+            <span class="challenge-badge" id="challengeWeek">Semana 1 de 12</span>
+            <span class="challenge-badge light" id="challengePeriod"></span>
+          </div>
+          <p class="eyebrow">Desafio da semana</p>
+          <h2 class="challenge-title" id="challengeTitle">Uma aula.<br>Sem notificações.</h2>
+          <p class="challenge-description" id="challengeDescription">Coloque o celular no silencioso, guarde-o e veja como fica sua experiência.</p>
+          <p class="challenge-small" id="challengeAction"></p>
+          <div class="challenge-progress">
+            <div class="challenge-progress-line" aria-label="Progresso dos desafios">
+              <div class="challenge-progress-fill" id="challengeProgressFill"></div>
+            </div>
+            <div class="challenge-small" id="challengeProgressLabel">1 / 12 desafios</div>
+          </div>
+        </div>
+        <div class="challenge-actions">
+          <a class="prototype-btn dark" id="challengeLink" href="desafio.html?semana=1">Participar ↗</a>
+          <a class="prototype-btn secondary" href="desafios.html">Todos os desafios</a>
+          <a class="prototype-btn secondary" href="aprenda.html">Ver dicas</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section container" id="quiz" data-reveal>
+      <div class="quiz-copy">
+        <p class="eyebrow">Interaja</p>
+        <h2>Quanto o celular<br>disputa sua atenção?</h2>
+        <p>Responda um quiz rápido e descubra seu nível de distração.</p>
+      </div>
+      <a class="quiz-card quiz-teaser" href="quiz.html">
+        <p>Durante uma aula, com que frequência você olha o celular?</p>
+        <span class="prototype-btn dark">Fazer o quiz ↗</span>
+      </a>
+    </section>
+
+    <section class="contact-strip" data-reveal>
+      <div class="container contact-strip-inner">
+        <div>
+          <p class="eyebrow">Fale com a gente</p>
+          <a class="phone-big small" href="tel:+5583994052626">(83) 99405-2626</a>
+        </div>
+        <a class="prototype-btn dark" href="contato.html">Página de contato ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="desafios-data.js"></script>
+  <script src="site.js"></script>
+  <script src="script.js"></script>
+  <script src="blog.js"></script>
+</body>
+</html>
